@@ -7,6 +7,6 @@ Nicholas Pipino
 
 "Tom's full name to be added"
 
-notes: 11/16 - Heroku Test failed needs resolution
+heroku url: https://evening-taiga-89077.herokuapp.com/
 
 
