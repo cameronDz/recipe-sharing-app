@@ -5,12 +5,8 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :recipes
   resources :ingredients_recipes
-<<<<<<< HEAD
   root 'main#welcome'
   
-=======
-  root 'ingredients#index'
->>>>>>> 57640fb46cb994ebd9de3073b9f5468c431b3b14
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
