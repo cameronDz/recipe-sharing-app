@@ -6,11 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-  Ingredient.create([{ name: 'Salt' }, { category: 'Spice' }])
-  Ingredient.create([{ name: 'Chicken' }, { category: 'Meat' }])
-  Ingredient.create([{ name: 'Corn' }, { category: 'Vegetable' }])
-  Ingredient.create([{ name: 'Tuna' }, { category: 'Meat' }])
-  Ingredient.create([{ name: 'Onion' }, { category: 'Vegetable' }])
-  Ingredient.create([{ name: 'Cumin' }, { category: 'Spice' }])
+  
  
 
