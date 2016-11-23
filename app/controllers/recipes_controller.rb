@@ -5,11 +5,14 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+    @ingredients = Ingredient.all
   end
 
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    @recipe = Recipe.find(params[:id])
+    @ingredients = Ingredients.find(params[:id])
   end
 
   # GET /recipes/new
@@ -25,6 +28,7 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+    
 
     respond_to do |format|
       if @recipe.save
