@@ -10,6 +10,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients/1
   # GET /ingredients/1.json
   def show
+    @ingredient = Ingredient.find(params[:id]) 
   end
 
   # GET /ingredients/new
