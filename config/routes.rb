@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/ingredient_search' => 'ingredients#search'
   get '/recipe_search' => 'recipes#search'
   get '/recipe_glossary' => 'recipes#glossary'
+  get 'signup' => 'users#new'
   
   # Used in AJAX for recipes
   post '/recipe_search', to: 'recipes#search'
