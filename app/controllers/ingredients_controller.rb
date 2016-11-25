@@ -1,6 +1,10 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
 
+  # allows user to search for recipes based on ingredients available
+  def search
+  end
+  
   # GET /ingredients
   # GET /ingredients.json
   def index

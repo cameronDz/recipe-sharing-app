@@ -1,6 +1,26 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
+  # allows user to search for recipes
+  def search
+    
+    # need to add some functionality here
+    
+  end
+  
+  # glossary of all recipes
+  def glossary
+    
+    # needs to be changed to do AJAX call
+    
+    @recipes = Recipe.all
+    
+    if @recipes.nil?
+      @recipes = Recipe.all
+    end
+    
+  end
+
   # GET /recipes
   # GET /recipes.json
   def index

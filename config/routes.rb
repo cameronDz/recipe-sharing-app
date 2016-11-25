@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
   get 'main/welcome'
   
-
+  # Routing used on home page to get to pages in buttons
+  get '/ingredient_search' => 'ingredients#search'
+  get '/recipe_search' => 'recipes#search'
+  get '/recipe_glossary' => 'recipes#glossary'
+  
+  # Used in AJAX for recipes
+  post '/recipe_search', to: 'recipes#search'
+  
   resources :ingredients
   resources :recipes
   resources :ingredients_recipes
+  
   root 'main#welcome'
   
   # The priority is based upon order of creation: first created -> highest priority.
