@@ -11,9 +11,10 @@ class RecipesController < ApplicationController
   # glossary of all recipes
   def glossary
     
-    # needs to be changed to do AJAX call
+    name = "M"
+    # params[:search] + '%'
     
-    @recipes = Recipe.all
+    @recipes = Recipe.where(['name LIKE ?', name])
     
     if @recipes.nil?
       @recipes = Recipe.all

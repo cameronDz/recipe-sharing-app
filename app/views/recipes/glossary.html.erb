@@ -53,12 +53,15 @@
           </div>
         </div>
       </div>
-        
+      
       <br>
-        
+      
       <div class = row>
         <div class="col-12">
-          Functionlaity soon to be added.
+          <%= form_tag(recipe_glossary, id: "recipe_search") do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", name: nil %>
+          <% end %>
         </div>
       </div>
       
