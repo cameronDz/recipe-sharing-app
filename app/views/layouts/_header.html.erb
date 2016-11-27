@@ -1,10 +1,13 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-        <nav>
-            <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "Home",   root_path %></li>
-                <li><%= link_to "Help",   help_path %></li>
-            </ul>
-        </nav>
-    </div>
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home",   root_path %></li>
+        
+  <!-- TODO: Add if statement for User information. -->
+        <li><%= link_to "Sign in Or Sign up", root_path %></li>
+      </ul>
+    </nav>
+  </div>
 </header>
+<br>
