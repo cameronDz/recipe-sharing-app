@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/recipe_search' => 'recipes#search'
   get '/recipe_glossary' => 'recipes#glossary'
   
+  # Routing used for footer
+  get '/contact' => 'main#contact'
+  
   # Used in AJAX for recipes
   post '/recipe_search', to: 'recipes#search'
   post '/recipe_gloassary', to: 'recipes#glossary'
