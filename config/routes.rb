@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   
   root 'main#welcome'
-  get 'main/welcome'
   
   # Routing used on home page to get to pages in buttons
   get '/ingredient_search' => 'ingredients#search'
@@ -9,7 +8,9 @@ Rails.application.routes.draw do
   get '/recipe_glossary' => 'recipes#glossary'
   
   # Routing used for footer
+  get 'main/welcome'
   get '/contact' => 'main#contact'
+  get '/about' => 'main#about'
   
   # Used in AJAX for recipes
   post '/recipe_search', to: 'recipes#search'
