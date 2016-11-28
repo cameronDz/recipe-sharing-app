@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :recipes
   resources :ingredients_recipes
+  resources :users
   
   root 'main#welcome'
   
