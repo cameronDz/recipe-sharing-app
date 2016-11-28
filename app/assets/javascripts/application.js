@@ -15,3 +15,9 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+
+$(document).on('turbolinks:load',function() {
+  $('#recipe_search').on('keyup', function() {
+    $('#recipe_search_form').submit();
+  });
+});
