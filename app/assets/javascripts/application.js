@@ -12,12 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require turbolinks
 //= require_tree .
-//= require bootstrap
-
 $(document).on('turbolinks:load',function() {
-  $('#recipe_search').on('keyup', function() {
-    $('#recipe_search_form').submit();
-  });
+    $('#search').on('keyup', function() {
+        $('#recipe_search_form').submit();
+    });
 });

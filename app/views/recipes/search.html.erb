@@ -18,7 +18,7 @@
       
       <div class="row">
         <div class="input-group col-lg-6 col-sm-12">
-          <%= form_tag(recipe_search_path, remote:true, id:"recipe_search_form") do %>
+          <%= form_tag(recipe_search_path, remote: true, id:"recipe_search_form") do %>
             <%= text_field_tag :search, params[:search] %>
             <%= submit_tag "Search", name: nil %>
           <% end %>
