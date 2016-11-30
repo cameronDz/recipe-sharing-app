@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   
   # Used in AJAX for recipes
   post '/recipe_search', to: 'recipes#search'
-  post '/recipe_gloassary', to: 'recipes#glossary'
+  post '/recipe_glossary', to: 'recipes#glossary'
   
   # db elements 
   resources :ingredients
