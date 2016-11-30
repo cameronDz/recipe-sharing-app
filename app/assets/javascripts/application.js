@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require bootstrap
 //= require_tree .
 $(document).on('turbolinks:load',function() {
     $('#search').on('keyup', function() {

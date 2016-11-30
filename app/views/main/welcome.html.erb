@@ -1,38 +1,31 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> Welcome - Home Page | Group Eight-teen Final Project </title>
-  </head>
+<% provide(:title, "Welcome") %>
   
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h1>Weclome to Group 18 - Recipe Website</h1>
-          <h2>Find something good to make with the ingredients in your cabinet!</h2>
-        </div>
-      </div>
-      
-      <br>
-      
-      <div class="row">
-        <div class="col-12">
-          Currently, in our massive database, we are storing 
-          <%= @num_recipes =%>
-          recipes you could make with over 
-          <%= @num_ingredients =%> 
-          different ingredients to use!! So what do you want to do now?!?!
-        </div>
-      </div>
-      
-      <br><br>
-      
-      <div class="row">
-        <a href="/recipe_glossary"   class="btn btn-primary col-xs-12 col-sm-6 col-md-3">Recipe Glossary</a>
-        <a href="/recipe_search"     class="btn btn-info    col-xs-12 col-sm-6 col-md-3">Recipe Search</a>
-        <a href="/ingredient_search" class="btn btn-success col-xs-12 col-sm-6 col-md-3">Ingredient Look-Up</a>
-        <a href="/recipes"           class="btn btn-warning col-xs-12 col-sm-6 col-md-3">Create a Recipe</a>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Weclome to Group 18 - Recipe Website</h2>
+      <h4>Find something good to make with the ingredients in your cabinet!</h4>
     </div>
-  </body>
-</html>
+  </div>
+  
+  <br>
+  
+  <div class="row">
+    <div class="col-12">
+      Currently, in our massive database, we are storing 
+      <%= @num_recipes =%>
+      recipes you could make with over 
+      <%= @num_ingredients =%> 
+      different ingredients to use!! So what do you want to do now?!?!
+    </div>
+  </div>
+  
+  <br><br>
+  
+  <div class="row">
+    <a href="/recipe_glossary"   class="btn btn-primary col-xs-12 col-sm-6 col-md-3">Recipe Glossary</a>
+    <a href="/recipe_search"     class="btn btn-info    col-xs-12 col-sm-6 col-md-3">Recipe Search</a>
+    <a href="/ingredient_search" class="btn btn-success col-xs-12 col-sm-6 col-md-3">Ingredient Look-Up</a>
+    <a href="/recipes"           class="btn btn-warning col-xs-12 col-sm-6 col-md-3">Create a Recipe</a>
+  </div>
+</div>
