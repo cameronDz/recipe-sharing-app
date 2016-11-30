@@ -12,6 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require turbolinks
 //= require_tree .
-//= require bootstrap
+$(document).on('turbolinks:load',function() {
+    $('#search').on('keyup', function() {
+        $('#recipe_search_form').submit();
+    });
+});
+
+$(document).on('turbolinks:load',function() {
+    $('#glossary').on('click', function() {
+        $('#glossary_form').submit();
+    });
+});

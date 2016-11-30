@@ -4,16 +4,23 @@ class RecipesController < ApplicationController
   # allows user to search for recipes
   def search
     
-    # need to add some functionality here
+    # taken from rails lecture slide 9
+    name = params[:search] + '%' unless params[:search].nil?
+    @recipes = Recipe.where(['name LIKE ?', name])
     
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   # glossary of all recipes
   def glossary
     
-    # needs to be changed to do AJAX call
+    name = "M"
+    # params[:search] + '%'
     
-    @recipes = Recipe.all
+    @recipes = Recipe.where(['name LIKE ?', name])
     
     if @recipes.nil?
       @recipes = Recipe.all

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Ingredient Search | Group Eight-teen Final Project </title>
+    <title> Recipe Search | Group Eight-teen Final Project </title>
   </head>
   
   <body>
@@ -13,28 +13,25 @@
         </div>
       </div>
       
+      <br>
+      
       <div class="row">
-        <div class="col-12">
-          Functionlaity soon to be added.
+        <div class="input-group col-lg-6 col-sm-12">
+          <%= form_tag(recipe_search_path, remote: true, id:"recipe_search_form") do %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", name: nil %>
+          <% end %>
         </div>
-      </div>
-        
-      <div class="row">
-          <div class="input-group col-lg-6 col-sm-12">
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">Search!</button>
-            </span>
-            <input type="text" class="form-control" placeholder="Enter recipe name...">
-          </div>
       </div>
       
       <br>
       
       <div class="row">
-        <div class="col">
-          <a href="main/welcome" class="btn btn-primary">Return to Home Page</a>
+        <div class="col-12" id="results">
+          <%= render 'results' %>
         </div>
       </div>
+      
     </div>
   </body>
 </html>
