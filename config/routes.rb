@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/ingredient_search' => 'ingredients#search'
   get '/recipe_search' => 'recipes#search'
   get '/recipe_glossary' => 'recipes#glossary'
+  get 'signup' => 'users#new'
   
   # Routing used for footer
   get 'main/welcome'
@@ -20,5 +21,6 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :recipes
   resources :ingredients_recipes
+  resources :users
   
 end
