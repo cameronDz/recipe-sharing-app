@@ -1,14 +1,14 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-  before_filter :set_search
+  
 
   # allows user to search for recipes
-  def set_search
-    @q = Recipe.ransack(params[:q])
-    @events = @q.result(distinct: true)
-    
+  def search
+    index
+    render :index
   end
-
+    
+    
   # glossary of all recipes
   def glossary
     
@@ -24,10 +24,19 @@ class RecipesController < ApplicationController
 
   # GET /recipes
   # GET /recipes.json
-  def index
-     @recipes = Recipe.all
-     @ingredients = Ingredient.all
+  
+  
+  
+   
+  def index    
+    @recipes = Recipe.all
+    @ingredients = Ingredient.all
+    
+    @q = Recipe.search(params[:q])
+    @recipes = @q.result(distinct: true)
   end
+ 
+  
 
   # GET /recipes/1
   # GET /recipes/1.json
