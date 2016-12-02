@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
     
     # taken from rails lecture slide 9
     name = params[:search] + '%' unless params[:search].nil?
+    
     @recipes = Recipe.where(['name LIKE ?', name])
     
     respond_to do |format|

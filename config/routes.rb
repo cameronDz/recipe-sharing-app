@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'main/welcome'
   get '/contact' => 'main#contact'
   get '/about' => 'main#about'
+  get '/help' => 'main#help'
   
   # Used in AJAX for recipes
   post '/recipe_search', to: 'recipes#search'
