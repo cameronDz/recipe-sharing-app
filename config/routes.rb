@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   resources :recipes
   resources :ingredients_recipes
   
+  resources :recipe do
+  collection do
+    match 'search' => 'recipe#search', via: [:get, :post], as: :search
+  end
+end
+  
   root 'main#welcome'
   
   # The priority is based upon order of creation: first created -> highest priority.

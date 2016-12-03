@@ -1,7 +1,7 @@
 class Recipe < ApplicationRecord
   
   validates :name,  presence: true, length: { maximum: 50 }
-  validates :instructions, presence: true, length: { maximum: 1000 }
+  validates :instructions, presence: true, length: {minimum: 5, maximum: 1000 }
   
   has_many :ingredients_recipes
   has_many :ingredients, :through => :ingredients_recipes
