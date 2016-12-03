@@ -57,15 +57,12 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
-    session[:id] =  @recipe.id
     
-
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
       else
-        session[:recipe] = params[:recipe]
         format.html { render :instructions }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
@@ -107,22 +104,7 @@ class RecipesController < ApplicationController
       params.require(:recipe).permit(:name, :instructions, ingredient_ids: [])
     end
     
-     def instructions
-      @id = session[:id]
-      @recipe = Recipe.find_by_id(@id)
     
-
-     respond_to do |format|
-       if @recipe.save
-         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
-         format.json { render :show, status: :created, location: @recipe }
-       else
-       
-         format.html { render :new }
-         format.json { render json: @recipe.errors, status: :unprocessable_entity }
-       end
-      end
-     end
 end
 
     
