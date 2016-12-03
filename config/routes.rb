@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'instructions/new'
+
+  get 'instructions/create'
+
   get 'main/welcome'
   
   # Routing used on home page to get to pages in buttons
