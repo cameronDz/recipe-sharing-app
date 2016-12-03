@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'instructions/new'
+  #get 'instructions/new'
 
-  get 'instructions/create'
+  #get 'instructions/create' => "instructions#create", as: "instructions_create"
 
   get 'main/welcome'
   
@@ -13,11 +13,14 @@ Rails.application.routes.draw do
   # Used in AJAX for recipes
   post '/recipe_search', to: 'recipes#search'
   
+ 
+  
   resources :ingredients
   resources :recipes
   resources :ingredients_recipes
   
   resources :recipe do
+    
   collection do
     match 'search' => 'recipe#search', via: [:get, :post], as: :search
   end
