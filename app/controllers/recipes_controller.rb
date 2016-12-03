@@ -1,15 +1,45 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
+  # allows user to search for recipes
+  def search
+    
+    # taken from rails lecture slide 9
+    name = params[:search] + '%' unless params[:search].nil?
+    
+    @recipes = Recipe.where(['name LIKE ?', name])
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  
+  # glossary of all recipes
+  def glossary
+    
+    name = "M"
+    # params[:search] + '%'
+    
+    @recipes = Recipe.where(['name LIKE ?', name])
+    
+    if @recipes.nil?
+      @recipes = Recipe.all
+    end
+    
+  end
+
   # GET /recipes
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+    @ingredients = Ingredient.all
   end
 
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    @recipe = Recipe.find(params[:id])
   end
 
   # GET /recipes/new
@@ -25,6 +55,7 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+    
 
     respond_to do |format|
       if @recipe.save
@@ -69,6 +100,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :instructions)
+      params.require(:recipe).permit(:name, :instructions, ingredient_ids: [])
     end
 end

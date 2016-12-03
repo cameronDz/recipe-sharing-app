@@ -12,4 +12,21 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
  */
+ 
+ html, body{
+    padding-top: 75px;
+ }
+ 
+ h2{
+     text-align:center;
+ }
+ 
+ h4{
+     text-align:justify;
+ }
+ 
+ .contact{
+     text-align:left;
+ }
