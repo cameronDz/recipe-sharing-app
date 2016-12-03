@@ -28,11 +28,3 @@
 
 <%= link_to 'New Recipe', new_recipe_path %>
 
-<%= search_form_for @q , url: recipes_path, :html => {method: :post} do |f| %>
-  <% Ingredient.all.each do |ingredient| %>
-     <%= check_box_tag('q[ingredients_id_eq_any][]', ingredient.id ) %>
-     <%= ingredient.name %>
-  <% end %>
-  <%= f.submit "Search" %>
-<% end %>
-

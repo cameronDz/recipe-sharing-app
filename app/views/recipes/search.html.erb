@@ -11,6 +11,7 @@
           <h1>Recipe Search Page</h1>
           <h3>Search for a recipe based here!</h3>
           
+          <% if false %> HALF WORKING SEARCH CODE
           <%= search_form_for @q, url: recipe_search_path do |f| %>
             <% Ingredient.all.each do |ingredient| %>
               <%= f.check_box :ingredients_id, {:multiple => true}, ingredient.id, nil %>
@@ -18,7 +19,7 @@
             <% end %>
             <%= f.submit %>
           <% end %>
-    
+          <% end %> 
 
         </div>
       </div>
