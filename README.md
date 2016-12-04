@@ -4,8 +4,7 @@ Contributors:
 
 Cameron M. Dziurgot
 Nicholas Pipino
-
-"Tom's full name to be added"
+Thomas Roberge
 
 heroku url: https://evening-taiga-89077.herokuapp.com/
 
