@@ -22,13 +22,6 @@
       <%= f.text_area :instructions %>
     </div>
     
-    <div class="field">
-      <% Ingredient.all.each do |ingredient| %>
-        <%= check_box_tag "recipe[ingredient_ids][]", ingredient.id %>
-        <%= ingredient.name %><br>
-      <% end %>
-    </div>
-  
   <div class="field">
     
     <%= f.label :Ingredients %>
