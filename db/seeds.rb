@@ -22,3 +22,11 @@
   recipe = Recipe.create({name: "Cheese", instructions: "get milk, do something"})
   recipe = Recipe.create({name: "Hambuger", instructions: "get patty, grill, put on bun"})
   recipe = Recipe.create({name: "Ice cream", instructions: "get milk, do something, freeze"})
+  
+  # more cool ingrientless recipes
+  recipe = Recipe.create({name: "Rocky Mountain Savage Pie", instructions: "Go for a long hike into the wilderness. There your hunger for knownledge, not nutrience, will be satisfied."})
+  recipe = Recipe.create({name: "Spicy Dice Octopus", instructions: "Go in to the ocean. Grab yourself an Octopus. You take that slimy octopus and you dump chili powder on him. And you Eat that octopus!"})
+  recipe = Recipe.create({name: "Jungle Coffee", instructions: "Find a large forest, preferable inhabited by wild animals. Get water from that forest and use that water to brew some coffee."})
+  recipe = Recipe.create({name: "Gainz", instructions: "Just do werk, and eat boiled chicken baby."})
+  recipe = Recipe.create({name: "Zootopia Lamb", instructions: "Get salt, pepper, and gravy. Smother a live baby lamb in this mixture concoction. Eat the lamb, alive."})
+  recipe = Recipe.create({name: "X Coffee", instructions: "Brew coffee with Mountain Dew."})

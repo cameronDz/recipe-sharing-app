@@ -8,8 +8,6 @@
     </div>
   </div>
   
-  <br> 
-  
   <div class="row">
     <div class="col-12 text-center">
       <h1>Weclome to Group 18 - Recipe Website</h1>
@@ -31,18 +29,23 @@
   
   <br><br>
   
+  
+  
   <div class="row">
-    <a href="/recipe_glossary"   class="btn btn-primary col-xs-12 col-sm-6 col-md-3">Recipe Glossary</a>
-    <a href="/recipe_search"     class="btn btn-info    col-xs-12 col-sm-6 col-md-3">Recipe Search</a>
-    <a href="/ingredient_search" class="btn btn-success col-xs-12 col-sm-6 col-md-3">Ingredient Look-Up</a>
-    <a href="/recipes/new"       class="btn btn-warning col-xs-12 col-sm-6 col-md-3">Create a Recipe</a>
+    <div class="list-group">
+      <a href="/recipes/new"       class="list-group-item col-xs-12 col-sm-12 col-md-4">Create a Recipe</a>
+      <a href="/recipe_glossary"   class="list-group-item col-xs-12 col-sm-6 col-md-4">Recipe Glossary</a>
+      <a href="/recipe_search"     class="list-group-item col-xs-12 col-sm-6 col-md-4">Recipe Search</a>
+    </div>
   </div>
   
   <br><br>
   
-  <div class="row">
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-  </div>
+  <% if logged_in? %>
+    <div class="row">
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    </div>
+  <% end %>
   
 </div>
   

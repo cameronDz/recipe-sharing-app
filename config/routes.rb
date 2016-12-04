@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   
-  #get 'sessions/new'
-
   root 'main#welcome'
+  get 'main/welcome'
   
   # Routing used on home page to get to pages in buttons
   get '/ingredient_search' => 'ingredients#search'
   get '/recipe_search' => 'recipes#search'
   get '/recipe_glossary' => 'recipes#glossary'
+  
+  #Routing for header
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
@@ -28,5 +29,11 @@ Rails.application.routes.draw do
   resources :recipes
   resources :ingredients_recipes
   resources :users
+  
+  resources :recipe do
+    collection do
+      match 'search' => 'recipe#search', via: [:get, :post], as: :search
+    end
+  end
   
 end

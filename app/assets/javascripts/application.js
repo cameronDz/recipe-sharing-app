@@ -21,9 +21,3 @@ $(document).on('turbolinks:load',function() {
         $('#recipe_search_form').submit();
     });
 });
-
-$(document).on('turbolinks:load',function() {
-    $('#glossary').on('click', function() {
-        $('#glossary_form').submit();
-    });
-});

@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  
 
   # allows user to search for recipes
   def search
@@ -15,26 +16,31 @@ class RecipesController < ApplicationController
     end
   end
   
+  
   # glossary of all recipes
   def glossary
     
-    name = "M"
-    # params[:search] + '%'
+    @recipes, @alphaParams = Recipe.all.alpha_paginate(params[:letter], {:bootstrap3 => true, :paginate_all => false, :pagination_class => "pagination-centered"}){|recipe| recipe.name}
     
-    @recipes = Recipe.where(['name LIKE ?', name])
-    
-    if @recipes.nil?
-      @recipes = Recipe.all
+    respond_to do |format|
+      format.html
+      format.js
     end
-    
   end
 
   # GET /recipes
   # GET /recipes.json
-  def index
+  
+  
+  
+   
+  def index    
     @recipes = Recipe.all
     @ingredients = Ingredient.all
+    
   end
+ 
+  
 
   # GET /recipes/1
   # GET /recipes/1.json
@@ -45,6 +51,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    #Trying to get user to work for new recipe
   end
 
   # GET /recipes/1/edit
@@ -54,15 +61,14 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = Recipe.new(recipe_params.merge(:user => current_user))
     
-
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
       else
-        format.html { render :new }
+        format.html { render :instructions }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
@@ -102,4 +108,8 @@ class RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:name, :instructions, ingredient_ids: [])
     end
+    
+    
 end
+
+    

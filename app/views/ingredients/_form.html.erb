@@ -24,10 +24,4 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-  
-  <div class "input">
-    <%= collection_check_boxes(:post, :author_ids, Author.all, :id, :name_with_initial) do |b| %>
-       b.label { b.check_box }
-    end
-  </div>
 <% end %>
