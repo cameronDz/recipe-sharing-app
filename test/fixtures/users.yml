@@ -1,0 +1,4 @@
+foobar:
+  name: Example Person
+  email: example@example.com
+  password_digest: "password"

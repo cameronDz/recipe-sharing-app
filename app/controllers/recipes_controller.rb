@@ -4,22 +4,28 @@ class RecipesController < ApplicationController
 
   # allows user to search for recipes
   def search
-    index
-    render :index
+    
+    # taken from rails lecture slide 9
+    name = params[:search] + '%' unless params[:search].nil?
+    
+    @recipes = Recipe.where(['name LIKE ?', name])
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
-    
-    
+  
+  
   # glossary of all recipes
   def glossary
     
-    # needs to be changed to do AJAX call
+    @recipes, @alphaParams = Recipe.all.alpha_paginate(params[:letter], {:bootstrap3 => true, :paginate_all => false, :pagination_class => "pagination-centered"}){|recipe| recipe.name}
     
-    @recipes = Recipe.all
-    
-    if @recipes.nil?
-      @recipes = Recipe.all
+    respond_to do |format|
+      format.html
+      format.js
     end
-    
   end
 
   # GET /recipes
@@ -45,6 +51,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    #Trying to get user to work for new recipe
   end
 
   # GET /recipes/1/edit
@@ -54,7 +61,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = Recipe.new(recipe_params.merge(:user => current_user))
     
     respond_to do |format|
       if @recipe.save

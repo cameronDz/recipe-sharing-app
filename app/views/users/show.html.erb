@@ -1,0 +1,26 @@
+<% provide(:title, @user.name) %>
+
+<div class="container">
+  <div class="row profile">
+		<div class="col-md-3">
+			<%= render 'users/sidebar' %>
+		</div>
+		<div class="col-md-9">
+      <div class="profile-content">
+			   <h1>Welcome <%= @user.name %></h1>
+		     <div class="col-md-8">
+          <% if @user.recipes.any? %>
+            <h3>Recipes (<%= @user.recipes.count %>)</h3>
+            <ul>
+              <% @user.recipes.each do |recipe| %>
+                <li><b><%= recipe.name %></b><br><%= recipe.instructions %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>You have not created any recipes yet.</p>
+          <% end %>
+        </div>
+      </div>
+		</div>
+	</div>
+</div>
