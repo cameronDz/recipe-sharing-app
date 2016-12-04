@@ -32,8 +32,6 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
     @ingredients = Ingredient.all
     
-    @q = Recipe.search(params[:q])
-    @recipes = @q.result(distinct: true)
   end
  
   
