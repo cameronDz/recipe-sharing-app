@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root 'main#welcome'
+  get 'main/welcome'
   
   # Routing used on home page to get to pages in buttons
   get '/ingredient_search' => 'ingredients#search'
@@ -28,5 +29,11 @@ Rails.application.routes.draw do
   resources :recipes
   resources :ingredients_recipes
   resources :users
+  
+  resources :recipe do
+    collection do
+      match 'search' => 'recipe#search', via: [:get, :post], as: :search
+    end
+  end
   
 end

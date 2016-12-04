@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  
 
   # allows user to search for recipes
   def search
@@ -15,6 +16,7 @@ class RecipesController < ApplicationController
     end
   end
   
+  
   # glossary of all recipes
   def glossary
     
@@ -28,10 +30,17 @@ class RecipesController < ApplicationController
 
   # GET /recipes
   # GET /recipes.json
-  def index
+  
+  
+  
+   
+  def index    
     @recipes = Recipe.all
     @ingredients = Ingredient.all
+    
   end
+ 
+  
 
   # GET /recipes/1
   # GET /recipes/1.json
@@ -54,13 +63,12 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params.merge(:user => current_user))
     
-
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
       else
-        format.html { render :new }
+        format.html { render :instructions }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
@@ -100,4 +108,8 @@ class RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:name, :instructions, ingredient_ids: [])
     end
+    
+    
 end
+
+    
