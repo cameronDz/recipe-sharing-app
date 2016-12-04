@@ -45,6 +45,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    #Trying to get user to work for new recipe
   end
 
   # GET /recipes/1/edit
@@ -54,7 +55,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = Recipe.new(recipe_params.merge(:user => current_user))
     
 
     respond_to do |format|
