@@ -18,15 +18,12 @@ class RecipesController < ApplicationController
   # glossary of all recipes
   def glossary
     
-    name = "M"
-    # params[:search] + '%'
+    @recipes, @alphaParams = Recipe.all.alpha_paginate(params[:letter], {:bootstrap3 => true, :paginate_all => false, :pagination_class => "pagination-centered"}){|recipe| recipe.name}
     
-    @recipes = Recipe.where(['name LIKE ?', name])
-    
-    if @recipes.nil?
-      @recipes = Recipe.all
+    respond_to do |format|
+      format.html
+      format.js
     end
-    
   end
 
   # GET /recipes
